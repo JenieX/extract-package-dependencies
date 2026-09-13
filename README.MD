@@ -13,8 +13,8 @@ installation commands for later use.
 Clone the repository and install its dependencies:
 
 ```sh
-git clone <repository-url>
-cd <repository-directory>
+git clone git clone git@github.com:JenieX/extract-package-dependencies.git
+cd extract-package-dependencies
 pnpm install
 ```
 
@@ -83,7 +83,6 @@ manager's current resolution rules.
 ├── output/
 │   ├── dependencies.txt
 │   └── dev-dependencies.txt
-├── src/
 ├── package.json
 └── README.md
 ```
