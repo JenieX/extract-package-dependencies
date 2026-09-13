@@ -13,7 +13,7 @@ installation commands for later use.
 Clone the repository and install its dependencies:
 
 ```sh
-git clone git clone git@github.com:JenieX/extract-package-dependencies.git
+git clone git@github.com:JenieX/extract-package-dependencies.git
 cd extract-package-dependencies
 pnpm install
 ```
