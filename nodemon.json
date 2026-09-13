@@ -1,0 +1,8 @@
+{
+  "$schema": "file:///D:/projects/json-schemas/nodemon.json",
+  "watch": [
+    "gulpfile.js",
+    "input/package.json"
+  ],
+  "exec": "node node_modules/gulp/bin/gulp.js"
+}

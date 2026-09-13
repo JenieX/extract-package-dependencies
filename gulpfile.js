@@ -1,50 +1,82 @@
-const { src, dest, series } = require('gulp');
+const gulp = require('gulp');
+const del = require('del');
 const modifyContent = require('gulp-modifier');
 const rename = require('gulp-rename');
-const del = require('del');
+
+/**
+ * @typedef {object} PackageJson
+ * @property {Record<string, string>} [dependencies]
+ * @property {Record<string, string>} [devDependencies]
+ */
 
 function cleanTask() {
-  return del('dist');
+  return del('output');
 }
 
-let pkgName = '123';
-function extractTask() {
-  return src('./src/package.json')
+function extractDependenciesTask() {
+  return gulp
+    .src('./input/package.json')
     .pipe(
       modifyContent((content) => {
-        const pkg = JSON.parse(content);
+        // Throwing an error here wouldn't work because it gets caught!
 
-        /** Store the package name into `pkgName` variable, to use it later in `rename` */
-        pkgName = pkg.name;
+        /** @type {PackageJson} */
+        const { dependencies } = JSON.parse(content);
 
-        const dependencies = Object.keys(pkg.dependencies || []);
-        const devDependencies = Object.keys(pkg.devDependencies || []);
-        return [
-          '\n',
-          dependencies.length && `npm install --save ${dependencies.join(' ')}\n`,
-          devDependencies.length && `npm install --save-dev ${devDependencies.join(' ')}\n`,
-        ]
-          .filter(Boolean)
-          .join('');
-      })
+        if (!dependencies) {
+          return '';
+        }
+
+        return `pnpm i ${Object.keys(dependencies).join(' ')}`;
+      }),
     )
-
     .pipe(
       rename((pathObject) => {
-        console.log(pkgName);
         return {
           ...pathObject,
-          basename: `${pkgName}-dependencies`,
-          // dirname
+          basename: 'dependencies',
           extname: '.txt',
         };
-      })
+      }),
     )
-    .pipe(dest('dist'));
+    .pipe(gulp.dest('output'));
 }
 
-exports.default = series(
-  //
+function extractDevDependenciesTask() {
+  return gulp
+    .src('./input/package.json')
+    .pipe(
+      modifyContent((content) => {
+        // Throwing an error here wouldn't work because it gets caught!
+
+        /** @type {PackageJson} */
+        const { devDependencies } = JSON.parse(content);
+
+        if (!devDependencies) {
+          return '';
+        }
+
+        return `pnpm i -D ${Object.keys(devDependencies).join(' ')}`;
+      }),
+    )
+    .pipe(
+      rename((pathObject) => {
+        return {
+          ...pathObject,
+          basename: 'dev-dependencies',
+          extname: '.txt',
+        };
+      }),
+    )
+    .pipe(gulp.dest('output'));
+}
+
+exports.default = gulp.series(
   cleanTask,
-  extractTask
+  gulp.parallel(extractDependenciesTask, extractDevDependenciesTask),
 );
+
+/* Set timer only if `node` started with a flag, `inspect-wait` in this case. */
+if (process.execArgv.length > 0) {
+  setTimeout(() => {}, 60 * 1000 * 30);
+}

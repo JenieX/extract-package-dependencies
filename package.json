@@ -1,17 +1,28 @@
 {
+  "$schema": "file:///D:/projects/json-schemas/package.json",
   "name": "extract-package-dependencies",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Extract Node package dependencies as string to be installed later",
-  "author": "FlowerForWar",
-  "main": "src/package.json",
+  "author": "JenieX",
   "scripts": {
-    "start": "gulp"
+    "start": "node node_modules/gulp/bin/gulp.js",
+    "start-inspect": "node --inspect-wait=127.0.0.1:2003 node_modules/gulp/bin/gulp.js",
+    "start-nodemon": "nodemon --config nodemon.json",
+    "start-nodemon-inspect": "nodemon --config nodemon.inspect.json"
   },
-  "license": "MIT",
   "dependencies": {
     "del": "^6.1.1",
     "gulp": "^5.0.1",
     "gulp-modifier": "^1.1.0",
     "gulp-rename": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.18",
+    "@types/gulp-rename": "^2.0.7",
+    "@types/vinyl": "^2.0.12",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.9.6",
+    "prettier-plugin-jsdoc": "^1.8.1",
+    "prettier-plugin-pkg": "^0.22.1"
   }
 }

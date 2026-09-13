@@ -1,0 +1,67 @@
+{
+  "$schema": "file:///D:/projects/json-schemas/tsconfig.json",
+
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "moduleResolution": "nodenext",
+
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+
+    /* Strict type checking */
+    "strict": true,
+
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+
+    /* Extra type-safety */
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+
+    /* Imports */
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    /* JavaScript checking */
+    "allowJs": true,
+    "checkJs": true,
+
+    /* Declarations / output */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    /* Interop */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Quality */
+    "skipLibCheck": false,
+
+    /* Build */
+    "noEmit": true
+
+    // "baseUrl": ".",
+    // "paths": {
+    //   "gulp-modifier": ["./types/gulp-modifier/index.d.ts"]
+    // }
+  },
+  "include": [
+    "gulpfile.js",
+    "types"
+  ]
+}
