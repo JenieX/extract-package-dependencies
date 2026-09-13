@@ -8,16 +8,10 @@
     "start": "gulp"
   },
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "del": "^6.1.1",
-    "eslint": "^8.20.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "gulp": "^4.0.2",
-    "gulp-modifier": "^1.0.1",
-    "gulp-rename": "^2.0.0",
-    "prettier": "^2.7.1"
+    "gulp": "^5.0.1",
+    "gulp-modifier": "^1.1.0",
+    "gulp-rename": "^2.1.0"
   }
 }

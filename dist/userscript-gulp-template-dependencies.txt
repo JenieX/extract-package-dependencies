@@ -1,3 +1,0 @@
-
-npm install --save dayjs
-npm install --save-dev @rollup/plugin-node-resolve browserify cssnano del eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-prettier gulp gulp-append-prepend-no-trim gulp-debug gulp-file gulp-flatten gulp-htmlmin gulp-if gulp-modifier gulp-noop gulp-postcss gulp-rename gulp-replace gulp-sass lazypipe paint-console postcss prettier rollup sass userscript-meta-f4w vinyl-source-stream
