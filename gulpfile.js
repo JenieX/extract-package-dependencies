@@ -9,8 +9,9 @@ const rename = require('gulp-rename');
  * @property {Record<string, string>} [devDependencies]
  */
 
-function cleanTask() {
-  return del('output');
+async function cleanTask() {
+  await del('output/dependencies.txt');
+  await del('output/dev-dependencies.txt');
 }
 
 function extractDependenciesTask() {
