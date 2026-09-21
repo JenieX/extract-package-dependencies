@@ -21,7 +21,7 @@
     "@types/gulp-rename": "^2.0.7",
     "@types/vinyl": "^2.0.12",
     "nodemon": "^3.1.14",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.8",
     "prettier-plugin-jsdoc": "^1.8.1",
     "prettier-plugin-pkg": "^0.22.1"
   }
